@@ -1,4 +1,4 @@
-import json
+#Le programme fonctionne SEULEMENT s'il y a un fichier a convertir; ici nommé 'rien.txt'
 
 def liste_binaire(c):
   Liste = []
@@ -14,12 +14,6 @@ def liste_binaire(c):
     Liste += liste_reponse    
   return(Liste)
   
-
-#NB : Trouver autre nom pour tester et variable  
-#Ici : convertir Binaire en Decimal
-
-
-
 
 
 def convertisseur_binaire_decimal(p):
@@ -39,9 +33,6 @@ def convertisseur_binaire_decimal(p):
 
 
 
-#test = int(test.replace("0b", ""), 2)
-#print(test)
-  
 listeTest = [35,122,460]
 
 fichier = open("rien.txt","r")
@@ -56,8 +47,8 @@ liste1 = liste1.replace("s.u","")
 liste1= liste1.replace("	","")
 liste1= liste1.replace('\n', '')
 liste1= liste1[1:]
-datboi = liste1.split(',')
-datboi = datboi[:-2]
+step = liste1.split(',')
+step = step[:-2]
 
 
 liste3 = []
@@ -72,53 +63,8 @@ def liste_int(t):
   return(liste3)  
 
 
-ints = liste_int(datboi)
+ints = liste_int(step)
 
 
 final = liste_binaire(ints)
 resultat = convertisseur_binaire_decimal(final)
-
-
-
-
-dico =  {}
-compte = -1
-for x in resultat:
-  compte = compte + 1
-  if compte%2 == 0:
-    dico[int(x)] = int(resultat[compte+1])
-  else:
-    pass
-
-
-def separateur_abs(r):
-  i = 0
-  absc = []
-  for x in r:
-    if i % 2 == 0:
-      absc.append(r[i])
-    else:
-      pass
-    i = i + 1
-  return(absc) 
-
-def separateur_ord(r):
-  i = 0
-  ordo = []
-  for x in r:
-    if i % 2 != 0:
-      ordo.append(r[i])
-    else:
-      pass
-    i = i + 1
-  return(ordo)
-
-#print(separateur_abs(resultat))
-print(separateur_ord(resultat))
-
-
-#print(dico)
-"""
-with open('datap.json', 'w') as fp:
-    json.dump(dico, fp)
-"""
